@@ -1,0 +1,11 @@
+{
+  "name": "vespera-plugin-market",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test 'test/*.test.mjs'",
+    "validate": "node scripts/validate.mjs",
+    "verify": "node scripts/validate.mjs --verify",
+    "update": "node scripts/update-releases.mjs --dry-run"
+  }
+}

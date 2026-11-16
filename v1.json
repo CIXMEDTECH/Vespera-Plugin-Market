@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "updated_at": "2026-11-16T10:46:54.911Z",
+  "plugins": [
+    {
+      "id": "billing-calendar",
+      "name": {
+        "zh": "续费日历",
+        "en": "Billing calendar"
+      },
+      "description": {
+        "zh": "用日历查看各节点的续费和到期日期、每月支出，并可订阅到自己的日历应用。",
+        "en": "A calendar of when nodes renew or expire and what each month costs, with a feed for your calendar app."
+      },
+      "author": "Vespera",
+      "category": "report",
+      "icon": "calendar",
+      "version": "1.0.1",
+      "vespera": ">=0.1.0-beta.8.3",
+      "url": "https://github.com/CIXMEDTECH/Plugin-Billing-Calendar",
+      "download": "https://github.com/CIXMEDTECH/Plugin-Billing-Calendar/releases/download/v1.0.1/billing-calendar-1.0.1.zip",
+      "sha256": "36de4faeb1ec79adc841e5292db0d12f961fe6ae0fd8a00d9b71d65c8d34ff1c",
+      "size": 8894,
+      "permissions": [
+        "nodes",
+        "nodes:billing",
+        "routes",
+        "routes:public"
+      ]
+    },
+    {
+      "id": "status-image",
+      "name": {
+        "zh": "状态图片",
+        "en": "Status images"
+      },
+      "description": {
+        "zh": "把节点的实时状态做成图片：小徽章、单节点卡片和全部节点的状态看板，有 SVG、PNG、JPEG 和会自己刷新的 MJPEG 实时流，可以贴到 README、论坛签名或网站里。",
+        "en": "Live node status as images: small badges, a card per node and a board of all nodes, as SVG, PNG, JPEG or a self-refreshing MJPEG stream, to embed in a README, a forum signature or a site."
+      },
+      "author": "Vespera",
+      "category": "display",
+      "icon": "image",
+      "version": "1.2.0",
+      "vespera": ">=0.1.0-beta.8.3",
+      "url": "https://github.com/CIXMEDTECH/Plugin-Status-Image",
+      "download": "https://github.com/CIXMEDTECH/Plugin-Status-Image/releases/download/v1.2.0/status-image-1.2.0.zip",
+      "sha256": "d073b10b914a0a71d1691f328c9e294fd6822de0fc093e40d2d5d9d5cd461f12",
+      "size": 2079217,
+      "permissions": [
+        "nodes",
+        "routes",
+        "routes:public"
+      ]
+    },
+    {
+      "id": "traffic-report",
+      "name": {
+        "zh": "流量报告",
+        "en": "Traffic reports"
+      },
+      "description": {
+        "zh": "按日、周、月把各节点的流量汇总发到通知渠道。",
+        "en": "Daily, weekly and monthly traffic summaries of your nodes, sent to your notification channels."
+      },
+      "author": "Vespera",
+      "category": "report",
+      "icon": "bar-chart",
+      "version": "1.0.1",
+      "vespera": ">=0.1.0-beta.8",
+      "url": "https://github.com/CIXMEDTECH/Plugin-Traffic-Report",
+      "download": "https://github.com/CIXMEDTECH/Plugin-Traffic-Report/releases/download/v1.0.1/traffic-report-1.0.1.zip",
+      "sha256": "7c44262753f99a6ae6908a8438569200a7976fa9ad59e8972d9a8ac3b84563cc",
+      "size": 6920,
+      "permissions": [
+        "nodes",
+        "notify",
+        "routes"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+name: 提交在 GitHub 中开源的插件
+description: Submit an open-source plugin hosted on GitHub.
+title: "[Plugin] "
+labels:
+  - plugin-submission
+  - github-plugin
+body:
+  - type: markdown
+    attributes:
+      value: |
+        只需要仓库地址：插件信息从最新 Release 里的插件 zip 的 `vespera-plugin.json` 读取。之后发布新 Release，市场会自动发起更新。
+
+        Only the repository is needed: everything else is read from `vespera-plugin.json` in the plugin zip of the latest release. New releases are picked up automatically afterwards.
+
+  - type: input
+    id: repository
+    attributes:
+      label: GitHub 仓库地址 / GitHub repository URL
+      placeholder: "https://github.com/owner/repository"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: 插件分类 / Plugin category
+      options:
+        - 通知 / Notifications
+        - 监控与告警 / Monitoring and alerts
+        - 报表与统计 / Reports
+        - 数据与集成 / Data and integrations
+        - 登录与安全 / Login and security
+        - 展示与嵌入 / Display and embeds
+        - 系统与工具 / System and utilities
+        - 未分类 / Uncategorized
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: 我已确认 / I confirm
+      options:
+        - label: 仓库是公开的，最新 Release 里恰好有一个插件 zip，标签与清单里的 version 一致（如 v1.2.0）。 / The repository is public and its latest release has exactly one plugin zip, tagged with the manifest version (e.g. v1.2.0).
+          required: true
+        - label: 插件只申请它真正需要的权限，并且不含恶意代码。 / The plugin asks only for the permissions it needs and contains no malicious code.
+          required: true

@@ -1,0 +1,32 @@
+name: Validate catalog
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test 'test/*.test.mjs'
+      - run: node scripts/validate.mjs
+      # Download every package whose entry changed and check it is what the entry says.
+      - name: Verify changed packages
+        if: github.event_name == 'pull_request'
+        run: |
+          git fetch --depth=1 origin "$GITHUB_BASE_REF"
+          CHANGED=$(node -e '
+            const fs = require("fs"), { execSync } = require("child_process");
+            const now = JSON.parse(fs.readFileSync("v1.json", "utf8")).plugins;
+            let before = [];
+            try { before = JSON.parse(execSync("git show FETCH_HEAD:v1.json")).plugins; } catch {}
+            const old = Object.fromEntries(before.map((p) => [p.id, JSON.stringify(p)]));
+            console.log(now.filter((p) => old[p.id] !== JSON.stringify(p)).map((p) => p.id).join(" "));
+          ')
+          echo "changed: ${CHANGED:-none}"
+          [ -z "$CHANGED" ] || node scripts/validate.mjs --verify $CHANGED

@@ -1,0 +1,56 @@
+name: 提交非 GitHub 托管的插件
+description: Submit a plugin whose package is not hosted on GitHub.
+title: "[Plugin] "
+labels:
+  - plugin-submission
+  - external-plugin
+body:
+  - type: markdown
+    attributes:
+      value: |
+        插件信息从 zip 里的 `vespera-plugin.json` 读取。非 GitHub 托管的插件不会自动更新，发布新版本后请再提交一次。
+
+        Everything is read from `vespera-plugin.json` in the zip. Plugins hosted elsewhere are not updated automatically: submit again for each new version.
+
+  - type: input
+    id: project_url
+    attributes:
+      label: 项目地址 / Project URL
+      placeholder: "https://example.com/project"
+    validations:
+      required: true
+
+  - type: input
+    id: download
+    attributes:
+      label: 插件包下载地址 / Plugin package URL
+      description: 一个固定版本的 https 地址，内容以后不能再变：市场记录的是它的 SHA-256。 / A versioned https URL whose content never changes: the market records its SHA-256.
+      placeholder: "https://example.com/my-plugin-1.0.0.zip"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: 插件分类 / Plugin category
+      options:
+        - 通知 / Notifications
+        - 监控与告警 / Monitoring and alerts
+        - 报表与统计 / Reports
+        - 数据与集成 / Data and integrations
+        - 登录与安全 / Login and security
+        - 展示与嵌入 / Display and embeds
+        - 系统与工具 / System and utilities
+        - 未分类 / Uncategorized
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: 我已确认 / I confirm
+      options:
+        - label: 插件只申请它真正需要的权限，并且不含恶意代码。 / The plugin asks only for the permissions it needs and contains no malicious code.
+          required: true
+        - label: 非 GitHub 托管的插件不会自动更新。 / Plugins hosted outside GitHub are not updated automatically.
+          required: true
